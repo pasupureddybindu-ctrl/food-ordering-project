@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1782024441182,
+    "name": "bindu",
+    "phone": "9553599460",
+    "address": "rajahmundry",
+    "food": "burger",
+    "quantity": "3",
+    "payment": "Cash On Delivery",
+    "status": "Pending"
+  },
+  {
+    "id": 1782100440967,
+    "name": "bindu",
+    "phone": "9553599460",
+    "address": "rjy",
+    "food": "burger",
+    "quantity": "2",
+    "payment": "Cash On Delivery",
+    "status": "Pending"
+  },
+  {
+    "id": 1782110577792,
+    "name": "bindu",
+    "phone": "9553599460",
+    "address": "rjy",
+    "food": "pizza",
+    "quantity": "6",
+    "payment": "Cash On Delivery",
+    "status": "Pending"
+  }
+]

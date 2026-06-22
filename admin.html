@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | FoodHub</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.orders-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:30px;
+}
+
+.order-card{
+background:#1f2937;
+width:320px;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.order-card h3{
+color:#ff9800;
+margin-bottom:10px;
+}
+
+.order-card p{
+margin:8px 0;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">🍔 FoodHub Admin</div>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+<li><a href="menu.html">Menu</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="order.html">Order</a></li>
+
+</ul>
+
+</nav>
+
+<h1 class="title">
+Customer Orders
+</h1>
+
+<div
+id="orders"
+class="orders-container">
+</div>
+
+<footer>
+
+<h2>FoodHub Admin Dashboard</h2>
+
+<p>Manage Orders Efficiently</p>
+
+</footer>
+
+<script>
+
+fetch("http://localhost:5000/orders")
+
+.then(response => response.json())
+
+.then(data => {
+
+let html = "";
+
+data.forEach(order => {
+
+html += `
+
+<div class="order-card">
+
+<h3>${order.name}</h3>
+
+<p><b>Phone:</b> ${order.phone}</p>
+
+<p><b>Address:</b> ${order.address}</p>
+
+<p><b>Food:</b> ${order.food}</p>
+
+<p><b>Quantity:</b> ${order.quantity}</p>
+
+<p><b>Status:</b> ${order.status}</p>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("orders").innerHTML = html;
+
+})
+
+.catch(error => {
+
+document.getElementById("orders").innerHTML =
+"<h2>❌ Cannot Connect To Backend</h2>";
+
+});
+
+</script>
+
+</body>
+</html>
